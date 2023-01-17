@@ -1,0 +1,79 @@
+uptime
+alias cp='cp -i'
+
+cp -r /etc . 2>/dev/null
+
+df -h		파티션
+du -sh		용량확인
+
+
+vi editor
+
+잘라내기 dd
+복사 yy
+붙여넣기 p/ P(가장앞으로)
+
+u undo
+
+dw 잘라내기
+
+A 라인 맨 뒤
+I 라인 맨 앞
+
+대소문자 변환 ~
+J 아래 문장 위로 땡겨옴
+
+:set nonumber
+:set number
+:set nonu
+:set nu
+
+찾기
+/if	'if' 만 찾음
+?if	순서상관없이 'if', 'fi'찾음
+:1,15 	s/if/FFFFF	//substitute
+:1,$ 	s/if/FFFFF	// $(end) ^(start) //$ = 끝까지
+:%	//문서 전체
+
+:%	s/e/9999/g
+
+
+
+shift 8 같은 단어 찾기
+
+
+
+
+:set 현재 설정되어 있는것들
+:!bash 에디터창 밖으로 나감(끝내려면 exit)
+
+:w p20		다른이름으로 저장
+:1, 10 w p30	1부터 10까지만 p30으로 저장
+:6,$ w p32	6부터 끝까지 p32로 저장
+
+:5 r ! cal 5 2023	2023년 5월 달력을 파일에 넣는다
+:set mouse=a/r		마우스 가능/해제
+
+ctrl v
+alt v
+
+창분할
+:vs a2
+:sp b2
+:new b5
+
+vim 설정파일
+
+nl .vimrc
+     1  se nu ai ci si ts=4 sw=4 ruler title showmatch
+     2  syntax on
+     3  hi comment ctermfg=red
+
+
+~/.profile
+
+
+
+etc option(color)
+\ls /etc --color=tty
+\ls /etc --color=auto
