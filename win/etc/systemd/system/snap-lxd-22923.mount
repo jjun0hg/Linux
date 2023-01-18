@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for lxd, revision 22923
+Before=snapd.service
+After=zfs-mount.service
+
+[Mount]
+What=/var/lib/snapd/snaps/lxd_22923.snap
+Where=/snap/lxd/22923
+Type=squashfs
+Options=nodev,ro,x-gdu.hide,x-gvfs-hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=default.target multi-user.target

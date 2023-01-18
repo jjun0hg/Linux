@@ -1,0 +1,26 @@
+#!/bin/sh
+
+NAME=tomcat9
+DEFAULT=/etc/default/$NAME
+LOGEXT="log txt"
+
+# The following variables can be overwritten in $DEFAULT
+
+# Whether to compress logfiles older than today's
+LOGFILE_COMPRESS=1
+
+# Overwrite settings from default file
+if [ -f "$DEFAULT" ]; then
+	. "$DEFAULT"
+fi
+
+if [ -d /var/log/$NAME ]; then
+	for EXT in $LOGEXT; do
+		# Compress the log files
+		if [ $LOGFILE_COMPRESS = 1 ]; then
+			find /var/log/$NAME/ -name \*.$EXT -daystart -mtime +0 -print0 -maxdepth 1 \
+				| xargs --no-run-if-empty -0 gzip -9
+			EXT=$EXT.gz
+		fi
+	done
+fi

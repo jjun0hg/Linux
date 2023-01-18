@@ -1,0 +1,64 @@
+####################################################################
+##### This file is automagically generated -- edit at your own risk
+#####
+##### file: /etc/cron.d/sendmail
+##### generated via: (/usr/bin/perl v5>34.0)
+#####		/usr/share/sendmail/update_conf
+#####		version: 8.15.2 2021-12-09 00:18:01 cowboy
+##### by: j@b3
+##### on: Wed Jan 18 09:35:58 2023
+##### in: /
+##### input files:
+#####	/etc/mail/sendmail.conf
+#####
+####################################################################
+#------------------------------------------------------------------------------
+#
+# /etc/cron.d/sendmail
+#
+# Copyright (c) 2001-2010 Richard Nelson.  All Rights Reserved.
+# Version:	  8.15.2
+# Time-stamp: <2021-12-09 00:18:01 cowboy>
+#
+# Sendmail crontab - Call sendmail at various times to do the following:
+#	1) Age queues - move undelivered mail to a slower queue
+#	2) Retry any mail queued by the message submission process
+#	3) run the queues (deliver mail) if a standalone daemon is not desired
+#
+# Each processes is independant and guided by /etc/mail/sendmail.conf and
+# {sendmail,submit}.mc files.
+#
+# There isn't anything here that should need touching.
+#
+# Any requisite queue/misc parameters must be set in /etc/mail/sendmail.conf
+# and reflected herein via /usr/sbin/sendmailconfig (or more directly via
+# /usr/share/sendmail/update_conf).
+#
+#------------------------------------------------------------------------------
+#
+# use default path, shell, home
+#SHELL=/bin/sh
+#PATH=
+#HOME=
+# send mail to this user, as `mail/smmsp` isn't real.
+MAILTO=root
+#
+# format of entries:
+# m h dom mon dow	user	command
+#
+#------------------------------------------------------------------------------
+# Every so often, give sendmail a chance to run the MSP queues.
+#
+*/20 *    *    *    *		smmsp	test -x /etc/init.d/sendmail && test -x /usr/share/sendmail/sendmail && test -x /usr/libexec/sendmail/sendmail && /usr/share/sendmail/sendmail cron-msp
+#
+#------------------------------------------------------------------------------
+# Every so often, give sendmail a chance to run the MTA queues.
+# Will also run MSP queues if enabled
+#
+#*/10 *    *    *    *		root	test -x /etc/init.d/sendmail && test -x /usr/share/sendmail/sendmail && test -x /usr/libexec/sendmail/sendmail && /usr/share/sendmail/sendmail cron-mta
+#
+#------------------------------------------------------------------------------
+# Every so often, give sendmail a chance to age the queues.
+#
+# No queue aging
+#
