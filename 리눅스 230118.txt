@@ -1,0 +1,105 @@
+내문서
+
+파일/가상시스템 가져오기
+
+#root 	//관리자
+$	//일반 사용자
+
+alias h='history'
+alias c='clear'
+alias l='ls -AlFh'
+alias ai='apt -y install'
+alias pq='ps -ef | grep'
+alias dq='dpkg -l | grep'
+alias df='df -Th'
+alias du='du -shc'
+alias p6='tail -6 /etc/passwd'
+alias np='nl /etc/passwd'
+
+ip addr
+lo = LOOPBACK
+enp0s3 = 랜카드이름
+08:00:27:c2:ca:14 랜카드 고유번호(맵주소)
+
+df 파티션정보
+fdisk -l
+
+
+tty (터미널 번호) 
+alt f2
+who
+tty
+alt f3
+j
+who
+tty
+
+useradd kbs
+
+apt list --installed |wc -l
+dpkg -l | nl
+
+apt update / upgrade / 
+
+top = 작업관리자 
+ls -i(index number)
+
+kill -9 pid // process 없앨때
+
+ls -alRS 
+
+^s 중단
+^q 진행
+^z background 전환
+
+& background 실행
+
+ssh- service
+
+runlevel
+
+ls /etc/rc*(윈도우 안전모드 개념)// 윈도우는 4까지 리눅스 6까지
+s = start, k = kill
+
+NTFS = 윈도우가 파일을 읽고 쓰는 방법
+mount = c나 d 드라이브가 부팅서버와 연결(?) 되는 거
+file /dev/sda1
+
+umount 할때 target is busy
+fuser -v /data		(/data = 지정)
+fuser -ck / data	ck 옵션으로 kill, umount
+
+
+파티션나누기
+fdisk /dev/sda
+
+p	print partition table
+serctors 유닛단위
+
+***
+하드디스크 추가
+fdisk
+mkfs
+mount
+***
+
+dpkg -l > pkg
+grep mail pkg
+----------------
+dpkg -l | grep mail	package 설치 확인
+
+ps -ef | grep apache	process 확인
+
+
+
+
+
+
+
+
+
+
+
+
+
+
