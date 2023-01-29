@@ -1,0 +1,315 @@
+who
+who am i
+who | sort | nl
+
+'	single quote	홑 따옴표
+"	double quote	겹 따옴표
+`	back quote, back tick	
+~ 	tilde,		물결(wave), 출렁이
+
+$ = 변수
+
+history 기록 확인
+shift pg up 지나간 화면 보기
+
+echo $HOME = echo ~		home 경로
+
+pwd 
+
+자주 쓰는 명령어 alias c='clear'
+
+/	
+\	
+
+:w write
+:q
+:wq
+:x
+
+c 언어 실행
+
+gcc -o b.c
+gcc -o o b.c		-o(comile file create)
+./b c 실행
+
+<c++실행>
+c++
+g++ -o y y.cpp
+./y
+
+<java 실행>
+javac k.java
+java k
+
+compile 	   <===>   script
+c, java, c++		   python, shell
+실행속도 빠름           실행속도 느림
+
+<DB테이블 생성>
+
+sqlite> .table
+sqlite> create table Lunch(menu, price);
+sqlite> insert into Lunch values("햄버거", 7000);
+sqlite> insert into Lunch values("볶음밥", 8000);
+sqlite> insert into Lunch values("비빔밥", 9000);
+
+sqlite> .head on
+sqlite> .mode col
+sqlite> .head on
+sqlite> select * from Lunch;
+
+가장 가벼운 db sqlite(RDBMS)
+
+AIX - IBM
+HP - UX
+Solaris - SUN - oracle
+
+mkdir ~/d1 && cd~/d1
+
+^z // 백그라운드 전환
+
+<c언어>
+stdin 	키보드	0
+stdout 	모니터	1
+stderr 	모니터	2
+>> 표준 입출력 장치
+
+>	리다이렉션(출력 방향 재지정)
+>>	내용추가
+nl < a2
+
+r - read
+w - write
+x - execute
+// 읽기, 쓰기, 실행
+
+bc 계산기
+
+ll -h	파일 크기 볼때 간략하게 보여줌
+
+tail -3 w1 | nl 행번호 붙일때
+
+ls
+ls .
+ls ..
+ls -a .
+ls -a -l -h
+ls -a -l -h /etc /var
+
+디렉토리 삭제 = rm -r 옵션사용
+
+cp /etc/* .  2>/dev/null	표준에러 내보내기
+
+cp -r /etc/s* .			s로 시작되는거 복사
+rm -fr s*			    강제로 삭제
+
+mv v.java j.java        파일 이름 변경
+
+uptime
+alias cp='cp -i'
+
+cp -r /etc . 2>/dev/null
+
+df -h		파티션
+du -sh		용량확인
+
+
+vi editor
+
+잘라내기 dd
+복사 yy
+붙여넣기 p/ P(가장앞으로)
+
+u undo
+
+dw 잘라내기
+
+A 라인 맨 뒤
+I 라인 맨 앞
+
+대소문자 변환 ~
+J 아래 문장 위로 땡겨옴
+
+:set nonumber
+:set number
+:set nonu
+:set nu
+
+찾기
+/if	'if' 만 찾음
+?if	순서상관없이 'if', 'fi'찾음
+:1,15 	s/if/FFFFF	//substitute
+:1,$ 	s/if/FFFFF	// $(end) ^(start) //$ = 끝까지
+:%	//문서 전체
+
+:%	s/e/9999/g
+
+
+
+shift 8 같은 단어 찾기
+
+
+
+
+:set 현재 설정되어 있는것들
+:!bash 에디터창 밖으로 나감(끝내려면 exit)
+
+:w p20		다른이름으로 저장
+:1, 10 w p30	1부터 10까지만 p30으로 저장
+:6,$ w p32	6부터 끝까지 p32로 저장
+
+:5 r ! cal 5 2023	2023년 5월 달력을 파일에 넣는다
+:set mouse=a/r		마우스 가능/해제
+
+ctrl v
+alt v
+
+창분할
+:vs a2
+:sp b2
+:new b5
+
+vim 설정파일
+
+nl .vimrc
+     1  se nu ai ci si ts=4 sw=4 ruler title showmatch
+     2  syntax on
+     3  hi comment ctermfg=red
+
+
+~/.profile
+
+etc option(color)
+\ls /etc --color=tty
+\ls /etc --color=auto
+
+내문서
+
+파일/가상시스템 가져오기
+
+#root 	//관리자
+$	//일반 사용자
+
+alias h='history'
+alias c='clear'
+alias l='ls -AlFh'
+alias ai='apt -y install'
+alias pq='ps -ef | grep'
+alias dq='dpkg -l | grep'
+alias df='df -Th'
+alias du='du -shc'
+alias p6='tail -6 /etc/passwd'
+alias np='nl /etc/passwd'
+
+ip addr
+lo = LOOPBACK
+enp0s3 = 랜카드이름
+08:00:27:c2:ca:14 랜카드 고유번호(맵주소)
+
+df 파티션정보
+fdisk -l
+
+
+tty (터미널 번호) 
+alt f2
+who
+tty
+alt f3
+j
+who
+tty
+
+useradd kbs
+
+apt list --installed |wc -l
+dpkg -l | nl
+
+apt update / upgrade / 
+
+top = 작업관리자 
+ls -i(index number)
+
+kill -9 pid // process 없앨때
+
+ls -alRS 
+
+^s 중단
+^q 진행
+^z background 전환
+
+& background 실행
+
+ssh- service
+
+runlevel
+
+ls /etc/rc*(윈도우 안전모드 개념)// 윈도우는 4까지 리눅스 6까지
+s = start, k = kill
+
+NTFS = 윈도우가 파일을 읽고 쓰는 방법
+mount = c나 d 드라이브가 부팅서버와 연결(?) 되는 거
+file /dev/sda1
+
+umount 할때 target is busy
+fuser -v /data		(/data = 지정)
+fuser -ck / data	ck 옵션으로 kill, umount
+
+
+파티션나누기
+fdisk /dev/sda
+
+p	print partition table
+serctors 유닛단위
+
+***
+하드디스크 추가
+fdisk
+mkfs
+mount
+***
+
+dpkg -l > pkg
+grep mail pkg
+----------------
+dpkg -l | grep mail	package 설치 확인
+
+ps -ef | grep apache	process 확인
+
+DBMS - oracle, mssql, mysql
+
+create / alter / drop	 DDL		
+insert / delete / update / select	DML
+grant / revoke / commit / rollback	DCL
+
+ace  - 1
+myace 1 aceDB
+
+
+<mysql>
+alter user 'root'@'localhost' identified by 'jj';
+flush privileges;
+
+
+create user myit@localhost identified with mysql_native_password by '1';
+
+umask - 파일접근권한
+
+/etc 설정데이터 모음
+/var 실제 데이터 저장
+
+linux 에서 so 라이브러리
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
